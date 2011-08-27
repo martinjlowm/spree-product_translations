@@ -14,6 +14,10 @@ module SpreeProductTranslations
         translates :name, :description, :meta_description, :meta_keywords
       end
 
+      ::ProductProperty.class_eval do
+        translates :value
+      end
+
       ::Property.class_eval do
         translates :presentation
       end

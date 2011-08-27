@@ -23,7 +23,6 @@ namespace :spree do
 
         puts "updating product names, description, meta_keywords and meta_description..."
         Product.all.each do |p|
-
           p.name = fetch_first_row("select products.name from products where products.id=#{p.id}")
           p.description = fetch_first_row("select products.description from products where products.id=#{p.id}")
           p.meta_keywords = fetch_first_row("select products.meta_keywords from products where products.id=#{p.id}")
@@ -49,6 +48,13 @@ namespace :spree do
         puts "updating property presentations..."
         Property.all.each do |p|
           p.presentation = fetch_first_row("select properties.presentation from properties where properties.id=#{p.id}")
+          p.save!
+        end
+        puts "done."
+
+        puts "updating product property values..."
+        ProductProperty.all.each do |p|
+          p.value = fetch_first_row("select product_properties.value from product_properties where product_properties.id=#{p.id}")
           p.save!
         end
         puts "done."

@@ -11,11 +11,11 @@ module SpreeProductTranslations
       end
 
       ::Product.class_eval do
-        translates :name, :description, :meta_description, :meta_keywords
+        translates :name, :description, :meta_description, :meta_keywords, :copy => true
       end
 
       ::ProductProperty.class_eval do
-        translates :value
+        translates :value, :copy => true
       end
 
       ::Property.class_eval do
@@ -23,15 +23,15 @@ module SpreeProductTranslations
       end
 
       ::Prototype.class_eval do
-        translates :name
+        translates :name, :copy => true
       end
 
       ::Taxonomy.class_eval do
-        translates :name
+        translates :name, :copy => true
       end
 
       ::Taxon.class_eval do
-        translates :name, :description
+        translates :name, :description, :copy => true
       end
 
       ::OptionType.class_eval do

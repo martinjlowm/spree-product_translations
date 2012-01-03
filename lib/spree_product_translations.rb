@@ -10,35 +10,35 @@ module SpreeProductTranslations
         Rails.env.production? ? require(c) : load(c)
       end
 
-      ::Product.class_eval do
+      Spree::Product.class_eval do
         translates :name, :description, :meta_description, :meta_keywords, :copy => true
       end
 
-      ::ProductProperty.class_eval do
+      Spree::ProductProperty.class_eval do
         translates :value, :copy => true
       end
 
-      ::Property.class_eval do
+      Spree::Property.class_eval do
         translates :presentation
       end
 
-      ::Prototype.class_eval do
+      Spree::Prototype.class_eval do
         translates :name, :copy => true
       end
 
-      ::Taxonomy.class_eval do
+      Spree::Taxonomy.class_eval do
         translates :name, :copy => true
       end
 
-      ::Taxon.class_eval do
+      Spree::Taxon.class_eval do
         translates :name, :description, :copy => true
       end
 
-      ::OptionType.class_eval do
+      Spree::OptionType.class_eval do
         translates :presentation
       end
 
-      ::OptionValue.class_eval do
+      Spree::OptionValue.class_eval do
         translates :presentation
       end
 
